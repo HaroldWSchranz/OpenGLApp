@@ -4,33 +4,38 @@
 // forward declared structure for access to GLFW window
 struct GLFWwindow;
 
-// namespace aie {
-
-class Application
-{
-public:
-	Application(const char* title, int width, int height)
+namespace harry {
+	class Application
 	{
-		m_title = title;
-		m_width = width;
-		m_height = height;
-	}
+	public:
+		Application(const char* title, int width, int height)
+		{
+			m_title = title;
+			m_width = width;
+			m_height = height;
+		}
 
+		bool startup();
+		bool update();
+		virtual void draw() = 0;
+		void shutdown();
 
-public:
-	bool startup();
-	bool update();
-	void draw();
-	void shutdown();
+		// sets the colour that the sceen is cleared to
+		void setBackgroundColour(float r, float g, float b, float a = 1.0f);
 
-protected:
-	glm::mat4 m_view;
-	glm::mat4 m_projection;
+		// returns the width / height of the game window
+		unsigned int getWindowWidth() const;
+		unsigned int getWindowHeight() const;
 
-	GLFWwindow* m_window;
+	protected:
+		glm::mat4 m_view;
+		glm::mat4 m_projection;
 
-	const char* m_title;
-	int m_width;
-	int m_height;
-};
+		GLFWwindow* m_window;
 
+		const char* m_title;
+		int m_width;
+		int m_height;
+	};
+
+}
