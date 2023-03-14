@@ -33,13 +33,13 @@ bool Application::startup()
 
     // the rest of our code goes here! 
 
-    printf("GL: %i.%i\n", GLVersion.major, GLVersion.minor);
-
     if (!gladLoadGL()) {
         glfwDestroyWindow(m_window);
         glfwTerminate();
         return false;
     }
+
+    printf("GL: %i.%i\n", GLVersion.major, GLVersion.minor);
 
     glClearColor(0.25f, 0.25f, 0.25f, 1);
     glEnable(GL_DEPTH_TEST); // enables the depth buffer
@@ -48,6 +48,7 @@ bool Application::startup()
     m_view = glm::lookAt(vec3(10, 10, 10), vec3(0), vec3(0, 1, 0));
     m_projection = glm::perspective(glm::pi<float>() * 0.25f,
         16 / 9.f, 0.1f, 1000.f);
+    return true;
 }
 
 bool Application::update()

@@ -123,12 +123,6 @@ int main() {
 */
 
 
-
-
-
-
-
-
 /*
 In the past this was a complicated process, but thanks to tools like Glad it is a simple process to
 remap all of OpenGL’s function calls to the correct versions and feature sets. After we have a

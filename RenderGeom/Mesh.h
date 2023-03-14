@@ -1,4 +1,7 @@
 #pragma once
+#include <glm/vec2.hpp>
+#include <glm/vec4.hpp>
+
 //  simple mesh class that stores unsigned integers for a single VAO, VBO  and IBO,
 //  along with an additional unsigned integer storing how many triangles out mesh has :
 class Mesh {
