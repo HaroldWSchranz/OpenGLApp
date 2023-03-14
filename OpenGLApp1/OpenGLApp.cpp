@@ -35,13 +35,13 @@ int main() {
 
     // the rest of our code goes here! 
 
-    printf("GL: %i.%i\n", GLVersion.major, GLVersion.minor);
-
     if (!gladLoadGL()) {
         glfwDestroyWindow(window);
         glfwTerminate();
         return -3;
     }
+
+    printf("GL: %i.%i\n", GLVersion.major, GLVersion.minor);
 
     glClearColor(0.25f, 0.25f, 0.25f, 1);
     glEnable(GL_DEPTH_TEST); // enables the depth buffer
