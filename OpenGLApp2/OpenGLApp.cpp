@@ -1,19 +1,5 @@
 // OpenGLApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
-//#include "glad.h"  
-//#include <GLFW/glfw3.h> 
-//#include <iostream>
-//
-//#include "Gizmos.h" 
-//#include <glm/glm.hpp> 
-//#include <glm/ext.hpp> 
-//
-//using glm::vec3;
-//using glm::vec4;
-//using glm::mat4;
-//
-//using aie::Gizmos;
-
 const int windowWidth = 1280;
 const int windowHeight = 720;
 

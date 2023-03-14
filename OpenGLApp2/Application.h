@@ -1,6 +1,5 @@
 #pragma once
 #include <glm/glm.hpp>
-#include <GLFW/glfw3.h>
 
 // forward declared structure for access to GLFW window
 struct GLFWwindow;

@@ -1,9 +1,13 @@
 #include "Application.h"
-#include <glm/glm.hpp>
-#include <glm/ext.hpp> 
+
 #include "glad.h"  
-#include <GLFW/glfw3.h>
-#include "Gizmos.h"
+#include <GLFW/glfw3.h> 
+
+#include "Gizmos.h" 
+#include <glm/glm.hpp> 
+#include <glm/ext.hpp>
+
+#include <iostream>
 
 using glm::vec3;
 using glm::vec4;
