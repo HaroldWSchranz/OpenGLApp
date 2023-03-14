@@ -1,8 +1,8 @@
 #include "Application.h"
 #include <glm/glm.hpp>
 #include <glm/ext.hpp> 
-#include <GLFW/glfw3.h>
 #include "glad.h"  
+#include <GLFW/glfw3.h>
 #include "Gizmos.h"
 
 using glm::vec3;
@@ -48,7 +48,7 @@ bool Application::startup()
 
 bool Application::update()
 {
-    return glfwWindowShouldClose(m_window) == false &&
+    return (glfwWindowShouldClose(m_window) == false &&
         glfwGetKey(m_window, GLFW_KEY_ESCAPE) != GLFW_PRESS );
 }
 

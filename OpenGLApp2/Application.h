@@ -2,8 +2,6 @@
 #include <glm/glm.hpp>
 #include <GLFW/glfw3.h>
 
-using glm::mat4;
-
 // forward declared structure for access to GLFW window
 struct GLFWwindow;
 
@@ -33,7 +31,5 @@ protected:
 	const char* m_title;
 	int m_width;
 	int m_height;
-	mat4 m_view;
-	mat4 m_projection;
 };
 
