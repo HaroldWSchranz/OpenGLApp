@@ -1,6 +1,23 @@
 #pragma once
+#include <glm/glm.hpp>
+#include <GLFW/glfw3.h>
+
+using glm::mat4;
+
+// forward declared structure for access to GLFW window
+struct GLFWwindow;
+
 class Application
 {
+public:
+	Application(const char* title, int width, int height)
+	{
+		m_title = title;
+		m_width = width;
+		m_height = height;
+	}
+
+
 public:
 	bool startup();
 	bool update();
@@ -12,5 +29,11 @@ protected:
 	glm::mat4 m_projection;
 
 	GLFWwindow* m_window;
+
+	const char* m_title;
+	int m_width;
+	int m_height;
+	mat4 m_view;
+	mat4 m_projection;
 };
 
