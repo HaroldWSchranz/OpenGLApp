@@ -39,8 +39,33 @@ bool Application3D::startup() {
         return false;
     }
 
-    m_quadMesh.initialiseQuad();
-
+    //m_quadMesh.initialiseQuad();
+    // ================================================================================
+    // create a quad using our new method by simply passing in the vertex data manually: 
+    // define 6 vertices for 2 triangles 
+    //Mesh::Vertex vertices[6];
+    //vertices[0].position = { -0.5f, 0, 0.5f, 1 };
+    //vertices[1].position = { 0.5f, 0, 0.5f, 1 };
+    //vertices[2].position = { -0.5f, 0, -0.5f, 1 };
+    //
+    //vertices[3].position = { -0.5f, 0, -0.5f, 1 };
+    //vertices[4].position = { 0.5f, 0, 0.5f, 1 };
+    //vertices[5].position = { 0.5f, 0, -0.5f, 1 };
+    //
+    //m_quadMesh.initialise(6, vertices);
+    // ================================================================================
+    // make use of indices as well if we wanted:
+    // define 4 vertices for 2 triangles 
+    Mesh::Vertex vertices[4];
+    vertices[0].position = { -0.5f, 0, 0.5f, 1 };
+    vertices[1].position = { 0.5f, 0, 0.5f, 1 };
+    vertices[2].position = { -0.5f, 0, -0.5f, 1 };
+    vertices[3].position = { 0.5f, 0, -0.5f, 1 };
+    
+    unsigned int indices[6] = { 0, 1, 2, 2, 1, 3 };
+    
+    m_quadMesh.initialise(4, vertices, 6, indices);
+    // ================================================================================
     // make the quad 10 units wide 
     m_quadTransform = {
      10,0,0,0,
