@@ -30,14 +30,14 @@ bool Application3D::startup() {
         getWindowWidth() / (float)getWindowHeight(),
         0.1f, 1000.f);
 
-    //m_shader.loadShader(aie::eShaderStage::VERTEX,
-    //    "./shaders/simple.vert");
-    //m_shader.loadShader(aie::eShaderStage::FRAGMENT,
-    //    "./shaders/simple.frag");
-    //if (m_shader.link() == false) {
-    //    printf("Shader Error: %s\n", m_shader.getLastError());
-    //    return false;
-    //}
+    m_shader.loadShader(aie::eShaderStage::VERTEX,
+        "./shaders/simple.vert");
+    m_shader.loadShader(aie::eShaderStage::FRAGMENT,
+        "./shaders/simple.frag");
+    if (m_shader.link() == false) {
+        printf("Shader Error: %s\n", m_shader.getLastError());
+        return false;
+    }
 
     //m_quadMesh.initialiseQuad();
     // ================================================================================
