@@ -2,14 +2,16 @@
 
 #include "Application3D.h" 
 
-const int windowWidth = 1280;
-const int windowHeight = 720;
+const float fraction = 0.95;
+const int windowWidth = 1920 * fraction;  //= 1280;
+const int windowHeight = 1080 * fraction; // = 720;
+
 
 int main() {
 
     //harry::Application* theApp = new harry::Application("Title", windowWidth, windowHeight);
 
-    auto theApp = new Application3D("Title", windowWidth, windowHeight);
+    auto theApp = new Application3D("OpenGLApp: RenderingModels", windowWidth, windowHeight);
     if (theApp->startup() == true) {
         while (theApp->update(0.0) == true)
             theApp->draw();

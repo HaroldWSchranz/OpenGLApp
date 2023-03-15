@@ -25,7 +25,10 @@ bool Application3D::startup() {
     Gizmos::create(10000, 10000, 10000, 10000);
 
     // create simple camera transforms 
-    m_view = glm::lookAt(vec3(10), vec3(0), vec3(0, 1, 0));
+    //m_view = glm::lookAt(vec3(10), vec3(0), vec3(0, 1, 0));
+    m_view = glm::lookAt(vec3(16, 16, 24), vec3(-8,-8,-8), vec3(0, 1, 0));
+    //m_view = glm::lookAt(vec3(24, 24, 24), vec3(-0, 4, -2), vec3(0, 1, 0));
+    //m_view = glm::lookAt(vec3(20,20,24), vec3(-2,-2,-2), vec3(0, 1, 0));
     m_projection = glm::perspective(glm::pi<float>() * 0.25f,
         getWindowWidth() / (float)getWindowHeight(),
         0.1f, 1000.f);
@@ -74,7 +77,11 @@ bool Application3D::startup() {
     // ================================================================================
     
     m_quadMesh.initialiseFromFile("stanford/bunny.obj");
-
+    //m_quadMesh2.initialiseFromFile("stanford/Dragon.obj");
+    //m_quadMesh.initialiseFromFile("stanford/Buddha.obj");
+    //m_quadMesh.initialiseFromFile("stanford/Lucy.obj");
+    //m_quadMesh.initialiseFromFile("stanford/Turret.obj");
+ 
     // make the bunny smaller 1 units wide 
     m_quadTransform = {
      1,0,0,0,

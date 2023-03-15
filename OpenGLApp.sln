@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderGeom2", "RenderGeom2\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderingModels", "RenderingModels\RenderingModels.vcxproj", "{CE254C58-AF92-4BCD-9496-8E051E702462}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderingModels2", "RenderingModels2\RenderingModels2.vcxproj", "{7C138D29-1962-4DEE-B145-0E9B56BD0121}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{CE254C58-AF92-4BCD-9496-8E051E702462}.Release|x64.Build.0 = Release|x64
 		{CE254C58-AF92-4BCD-9496-8E051E702462}.Release|x86.ActiveCfg = Release|Win32
 		{CE254C58-AF92-4BCD-9496-8E051E702462}.Release|x86.Build.0 = Release|Win32
+		{7C138D29-1962-4DEE-B145-0E9B56BD0121}.Debug|x64.ActiveCfg = Debug|x64
+		{7C138D29-1962-4DEE-B145-0E9B56BD0121}.Debug|x64.Build.0 = Debug|x64
+		{7C138D29-1962-4DEE-B145-0E9B56BD0121}.Debug|x86.ActiveCfg = Debug|Win32
+		{7C138D29-1962-4DEE-B145-0E9B56BD0121}.Debug|x86.Build.0 = Debug|Win32
+		{7C138D29-1962-4DEE-B145-0E9B56BD0121}.Release|x64.ActiveCfg = Release|x64
+		{7C138D29-1962-4DEE-B145-0E9B56BD0121}.Release|x64.Build.0 = Release|x64
+		{7C138D29-1962-4DEE-B145-0E9B56BD0121}.Release|x86.ActiveCfg = Release|Win32
+		{7C138D29-1962-4DEE-B145-0E9B56BD0121}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
