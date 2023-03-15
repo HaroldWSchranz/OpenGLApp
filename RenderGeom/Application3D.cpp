@@ -18,7 +18,7 @@ Application3D::~Application3D()
 }
 
 bool Application3D::startup() {
-
+    Application::startup();
     setBackgroundColour(0.25f, 0.25f, 0.25f);
 
     // initialise gizmo primitive counts 
@@ -57,7 +57,7 @@ void Application3D::shutdown()
 
 bool Application3D::update(float deltaTime)
 {
-    return true;
+    return Application::update();
 }
 
 void Application3D::draw()
