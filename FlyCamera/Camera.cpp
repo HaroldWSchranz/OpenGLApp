@@ -25,7 +25,7 @@ glm::mat4 Camera::getProjectionMatrix(float w, float h)
         0.1f, 1000.f);
 }
 
-// The code for translating the camera in its update function should look like this:
+// The code for translating the camera in its update function should look like this: (not sure if it should be void/bool)
 bool Camera::update(float deltaTime, GLFWwindow* window)
 {
     float thetaR = glm::radians(m_theta);
@@ -46,6 +46,7 @@ bool Camera::update(float deltaTime, GLFWwindow* window)
         m_theta += turnSpeed * mouseDelta.x;
         m_phi -= turnSpeed * mouseDelta.y;
     }
+    return true;
 }
 
 
