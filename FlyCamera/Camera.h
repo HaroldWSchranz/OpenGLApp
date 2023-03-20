@@ -16,6 +16,6 @@ public:
 private:
     float m_theta = 0.0f;
     float m_phi   = 0.0f;
-    glm::vec3 m_position = glm::vec3(-10,2,0);
+    glm::vec3 m_position = glm::vec3(-20,2,0);
 };
 
