@@ -9,6 +9,8 @@
 
 #include <iostream>
 
+harry::Application* harry::Application::s_instance = nullptr;
+
 namespace harry {
     using glm::vec3;
     using glm::vec4;
