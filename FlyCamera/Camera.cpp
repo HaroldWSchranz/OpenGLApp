@@ -35,6 +35,18 @@ bool Camera::update(float deltaTime, GLFWwindow* window)
     glm::vec3 right(-sin(thetaR), 0, cos(thetaR));
     glm::vec3 up(0, 1, 0);
     // use WASD, ZX keys to move camera around
+    if (glfwGetKey(window, GLFW_KEY_W))
+        m_position += forward * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_S))
+        m_position -= forward * deltaTime;
+
+    if (glfwGetKey(window, GLFW_KEY_A))
+        m_position += right * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_D))
+        m_position -= right * deltaTime;
+
+    if (glfwGetKey(window, GLFW_KEY_Z))
+        m_position -= up * deltaTime;
     if (glfwGetKey(window, GLFW_KEY_X))
         m_position += up * deltaTime;
 
