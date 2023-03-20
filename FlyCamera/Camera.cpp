@@ -40,9 +40,9 @@ bool Camera::update(float deltaTime, GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_S))
         m_position -= forward * deltaTime;
 
-    if (glfwGetKey(window, GLFW_KEY_A))
-        m_position += right * deltaTime;
     if (glfwGetKey(window, GLFW_KEY_D))
+        m_position += right * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_A))
         m_position -= right * deltaTime;
 
     if (glfwGetKey(window, GLFW_KEY_Z))
