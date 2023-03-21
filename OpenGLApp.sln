@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderingModels2", "Renderi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlyCamera", "FlyCamera\FlyCamera.vcxproj", "{E042EDFA-B997-4D0D-90AC-1508E7DEB104}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectLighting", "DirectLighting\DirectLighting.vcxproj", "{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{E042EDFA-B997-4D0D-90AC-1508E7DEB104}.Release|x64.Build.0 = Release|x64
 		{E042EDFA-B997-4D0D-90AC-1508E7DEB104}.Release|x86.ActiveCfg = Release|Win32
 		{E042EDFA-B997-4D0D-90AC-1508E7DEB104}.Release|x86.Build.0 = Release|Win32
+		{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}.Debug|x64.ActiveCfg = Debug|x64
+		{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}.Debug|x64.Build.0 = Debug|x64
+		{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}.Debug|x86.ActiveCfg = Debug|Win32
+		{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}.Debug|x86.Build.0 = Debug|Win32
+		{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}.Release|x64.ActiveCfg = Release|x64
+		{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}.Release|x64.Build.0 = Release|x64
+		{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}.Release|x86.ActiveCfg = Release|Win32
+		{558E0D50-F3E0-44DF-96D1-E0AB60439EB8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
