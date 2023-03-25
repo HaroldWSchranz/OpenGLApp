@@ -131,7 +131,7 @@ void Application3D::draw()
 
     // bind shader
     //m_shader.bind();
-// bind phong shader program
+    // bind phong shader program
     m_phongShader.bind();
 
     // bind light
