@@ -82,5 +82,11 @@
     <None Include="..\bin\Shaders\phong.frag">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\bin\Shaders\phongdltute.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\bin\Shaders\phongdltute.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

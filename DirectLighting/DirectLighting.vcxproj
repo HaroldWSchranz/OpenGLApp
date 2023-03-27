@@ -178,6 +178,8 @@
   <ItemGroup>
     <None Include="..\bin\Shaders\phong.frag" />
     <None Include="..\bin\Shaders\phong.vert" />
+    <None Include="..\bin\Shaders\phongdltute.frag" />
+    <None Include="..\bin\Shaders\phongdltute.vert" />
     <None Include="..\bin\Shaders\simple.frag" />
     <None Include="..\bin\Shaders\simple.vert" />
   </ItemGroup>

@@ -21,6 +21,13 @@ bool Application3D::startup() {
     Application::startup();
     setBackgroundColour(0.25f, 0.25f, 0.25f);
 
+    // Within the application’s startup() method you should set the light’s colours to a suitable value.
+    // For this example, we will use yellow for the light, and a dark gray for the ambient:
+    //m_light.colour = { 1, 1, 0 };
+    //m_ambientLight = { 0.25f, 0.25f, 0.25f };
+    m_light.colour = { 1,1,1 };
+    m_ambientLight = { 0.25f, 0.25f, 0.25f };
+
     // initialise gizmo primitive counts 
     Gizmos::create(10000, 10000, 10000, 10000);
 
@@ -40,8 +47,10 @@ bool Application3D::startup() {
     //    return false;
     //}
 
-    m_phongShader.loadShader(aie::eShaderStage::VERTEX, "./shaders/phong.vert");
-    m_phongShader.loadShader(aie::eShaderStage::FRAGMENT, "./shaders/phong.frag");
+    //m_phongShader.loadShader(aie::eShaderStage::VERTEX, "./shaders/phong.vert");
+    //m_phongShader.loadShader(aie::eShaderStage::FRAGMENT, "./shaders/phong.frag");
+    m_phongShader.loadShader(aie::eShaderStage::VERTEX, "./shaders/phongdltute.vert");
+    m_phongShader.loadShader(aie::eShaderStage::FRAGMENT, "./shaders/phongdltute.frag");
 
     if (m_phongShader.link() == false) {
         printf("Phong Shader Error: %s\n", m_phongShader.getLastError());
@@ -76,24 +85,28 @@ bool Application3D::startup() {
     //m_quadMesh.initialise(4, vertices, 6, indices);
     //// make the quad 10 units wide 
     //m_quadTransform = {
-    // 10,0,0,0,
-    // 0,10,0,0,
-    // 0,0,10,0,
-    // 0,0,0,1 };
+    //10,0,0,0,
+    //0,10,0,0,
+    //0,0,10,0,
+    //0,0,0,1 };
     // ================================================================================
     
-    m_quadMesh.initialiseFromFile("stanford/bunny.obj");
+    //m_quadMesh.initialiseFromFile("stanford/bunny.obj");
     //m_quadMesh2.initialiseFromFile("stanford/Dragon.obj");
     //m_quadMesh.initialiseFromFile("stanford/Buddha.obj");
     //m_quadMesh.initialiseFromFile("stanford/Lucy.obj");
     //m_quadMesh.initialiseFromFile("stanford/Turret.obj");
  
-    // make the bunny smaller 1 units wide 
-    m_quadTransform = {
-     1,0,0,0,
-     0,1,0,0,
-     0,0,1,0,
-     0,0,0,1 };
+    //
+    m_bunnyMesh.initialiseFromFile("stanford/bunny.obj");
+    m_bunnyMesh.loadMaterial("stanford/bunny.mtl");
+    // make the bunny smaller 1 units wide
+    m_bunnyTransform = {
+    1,0,0,0,
+    0,1,0,0,
+    0,0,1,0,
+    0,0,0,1
+    };
 
     return true;
 }
@@ -134,19 +147,36 @@ void Application3D::draw()
     // bind phong shader program
     m_phongShader.bind();
 
+    // m_phongShader.bindUniform("cameraPosition",
+    //   vec3(glm::inverse(m_viewMatrix)[3]));
+    // or
+    m_phongShader.bindUniform("cameraPosition",
+        m_camera.getPosition());
+
     // bind light
+    m_phongShader.bindUniform("AmbientColour", m_ambientLight);
+    m_phongShader.bindUniform("LightColour", m_light.colour);
     m_phongShader.bindUniform("LightDirection", m_light.direction);
 
-    // bind transform
-    auto pvm = pv * m_quadTransform;
-    //m_shader.bindUniform("ProjectionViewModel", pvm);
+    // bind transform for m_bunnyMesh and m_bunnyTransform
+    auto pvm = pv * m_bunnyTransform;
     m_phongShader.bindUniform("ProjectionViewModel", pvm);
-
-    // bind transforms for lighting
-    m_phongShader.bindUniform("ModelMatrix", m_quadTransform);
+    m_phongShader.bindUniform("ModelMatrix", m_bunnyTransform);      // bind transforms for lighting
+    m_phongShader.bindUniform("LightDirection", m_light.direction);
+    //
+    m_bunnyMesh.applyMaterial(&m_phongShader);
+    m_bunnyMesh.draw();
 
     // draw quad
-    m_quadMesh.draw();
+    // m_quadMesh
+    // bind shader 
+    //m_shader.bind();
+    // bind transform 
+    //auto pvm = m_projection * m_view * m_quadTransform;
+    //m_shader.bindUniform("ProjectionViewModel", pvm);
+    // draw quad 
+    //m_quadMesh.draw();
+
 
     vec4 white(1);
     vec4 black(0, 0, 0, 1);
@@ -164,20 +194,9 @@ void Application3D::draw()
     //Gizmos::draw(m_projection * m_view);
     Gizmos::draw(pv);
 
-    // bind shader 
-    //m_shader.bind();
-
-    // bind transform 
-    //auto pvm = m_projection * m_view * m_quadTransform;
-    //m_shader.bindUniform("ProjectionViewModel", pvm);
-
-    // draw quad 
-    //m_quadMesh.draw();
-
     glfwSwapBuffers(m_window);
     glfwPollEvents();
 
     // so does our render code! 
-
 
 }
