@@ -231,3 +231,4 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/DirectLighting2/Application3D.cpp

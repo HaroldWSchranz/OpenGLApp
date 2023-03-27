@@ -63,6 +63,11 @@ void Mesh::initialiseQuad() {
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE,
 		sizeof(Vertex), 0);
 
+	// enable second element as normal
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_TRUE,
+		sizeof(Vertex), (void*)16);
+
 	// unbind buffers 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

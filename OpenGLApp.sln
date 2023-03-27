@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectLighting2", "DirectLi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaterialsTextures", "MaterialsTextures\MaterialsTextures.vcxproj", "{040DA57F-863F-4BB6-B3AC-A3E8EDD9C25C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderingModels3", "RenderingModels3\RenderingModels3.vcxproj", "{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{040DA57F-863F-4BB6-B3AC-A3E8EDD9C25C}.Release|x64.Build.0 = Release|x64
 		{040DA57F-863F-4BB6-B3AC-A3E8EDD9C25C}.Release|x86.ActiveCfg = Release|Win32
 		{040DA57F-863F-4BB6-B3AC-A3E8EDD9C25C}.Release|x86.Build.0 = Release|Win32
+		{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}.Debug|x64.ActiveCfg = Debug|x64
+		{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}.Debug|x64.Build.0 = Debug|x64
+		{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}.Debug|x86.ActiveCfg = Debug|Win32
+		{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}.Debug|x86.Build.0 = Debug|Win32
+		{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}.Release|x64.ActiveCfg = Release|x64
+		{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}.Release|x64.Build.0 = Release|x64
+		{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}.Release|x86.ActiveCfg = Release|Win32
+		{42DE8B32-7ADD-44AB-AB8E-58C27320F37D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

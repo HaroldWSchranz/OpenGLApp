@@ -42,8 +42,10 @@ bool Application3D::startup() {
         return false;
     }
 
-    //m_quadMesh.initialiseQuad();
+    // 1ST QUAD METHOD:
+    // m_quadMesh.initialiseQuad();
     // ================================================================================
+    // 2ND QUAD METHOD:
     // create a quad using our new method by simply passing in the vertex data manually: 
     // define 6 vertices for 2 triangles 
     //Mesh::Vertex vertices[6];
@@ -57,23 +59,24 @@ bool Application3D::startup() {
     //
     //m_quadMesh.initialise(6, vertices);
     // ================================================================================
+    // 3RD QUAD METHOD:
     // make use of indices as well if we wanted:
     // define 4 vertices for 2 triangles 
-    //Mesh::Vertex vertices[4];
-    //vertices[0].position = { -0.5f, 0, 0.5f, 1 };
-    //vertices[1].position = { 0.5f, 0, 0.5f, 1 };
-    //vertices[2].position = { -0.5f, 0, -0.5f, 1 };
-    //vertices[3].position = { 0.5f, 0, -0.5f, 1 };
-    //
-    //unsigned int indices[6] = { 0, 1, 2, 2, 1, 3 };
-    //
-    //m_quadMesh.initialise(4, vertices, 6, indices);
+    Mesh::Vertex vertices[4];
+    vertices[0].position = { -0.5f, 0, 0.5f, 1 };
+    vertices[1].position = { 0.5f, 0, 0.5f, 1 };
+    vertices[2].position = { -0.5f, 0, -0.5f, 1 };
+    vertices[3].position = { 0.5f, 0, -0.5f, 1 };
+    
+    unsigned int indices[6] = { 0, 1, 2, 2, 1, 3 };
+    
+    m_quadMesh.initialise(4, vertices, 6, indices);
     //// make the quad 10 units wide 
-    //m_quadTransform = {
-    // 10,0,0,0,
-    // 0,10,0,0,
-    // 0,0,10,0,
-    // 0,0,0,1 };
+    m_quadTransform = {
+     20,0,0,0,
+     0,20,0,0,
+     0,0,20,0,
+     0,0,0,1 };
     // ================================================================================
     
     m_bunnyMesh.initialiseFromFile("stanford/bunny.obj");
@@ -130,11 +133,15 @@ void Application3D::draw()
     m_shader.bind();
 
     // bind transform 
-    auto pvm = m_projection * m_view * m_bunnyTransform;
+    auto pvm = m_projection * m_view * m_quadTransform;
     m_shader.bindUniform("ProjectionViewModel", pvm);
 
     // draw quad 
-    //m_quadMesh.draw();
+    m_quadMesh.draw();
+
+    // bind transform 
+    auto pvm2 = m_projection * m_view * m_bunnyTransform;
+    m_shader.bindUniform("ProjectionViewModel", pvm2);
 
     // draw bunny 
     m_bunnyMesh.draw();
