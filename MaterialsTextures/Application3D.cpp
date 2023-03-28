@@ -76,31 +76,25 @@ bool Application3D::startup() {
     //
     //m_quadMesh.initialise(6, vertices);
     // ================================================================================
+    // 3RD QUAD METHOD:
     // make use of indices as well if we wanted:
     // define 4 vertices for 2 triangles 
-    //Mesh::Vertex vertices[4];
-    //vertices[0].position = { -0.5f, 0, 0.5f, 1 };
-    //vertices[1].position = { 0.5f, 0, 0.5f, 1 };
-    //vertices[2].position = { -0.5f, 0, -0.5f, 1 };
-    //vertices[3].position = { 0.5f, 0, -0.5f, 1 };
+    Mesh::Vertex vertices[4];
+    vertices[0].position = { -0.5f, 0, 0.5f, 1 };
+    vertices[1].position = { 0.5f, 0, 0.5f, 1 };
+    vertices[2].position = { -0.5f, 0, -0.5f, 1 };
+    vertices[3].position = { 0.5f, 0, -0.5f, 1 };
     //
-    //unsigned int indices[6] = { 0, 1, 2, 2, 1, 3 };
+    unsigned int indices[6] = { 0, 1, 2, 2, 1, 3 };
     //
-    //m_quadMesh.initialise(4, vertices, 6, indices);
-    //// make the quad 10 units wide 
-    //m_quadTransform = {
-    //10,0,0,0,
-    //0,10,0,0,
-    //0,0,10,0,
-    //0,0,0,1 };
+    m_quadMesh.initialise(4, vertices, 6, indices);
+    // make the quad 20 units wide 
+    m_quadTransform = {
+    20,0,0,0,
+    0,20,0,0,
+    0,0,20,0,
+    0,0,0,1 };
     // ================================================================================
-    
-    //m_quadMesh.initialiseFromFile("stanford/bunny.obj");
-    //m_quadMesh2.initialiseFromFile("stanford/Dragon.obj");
-    //m_quadMesh.initialiseFromFile("stanford/Buddha.obj");
-    //m_quadMesh.initialiseFromFile("stanford/Lucy.obj");
-    //m_quadMesh.initialiseFromFile("stanford/Turret.obj");
- 
     //
     m_bunnyMesh.initialiseFromFile("stanford/bunny.obj");
     m_bunnyMesh.loadMaterial("stanford/bunny.mtl");
@@ -137,8 +131,9 @@ bool Application3D::update(float deltaTime)
     // query time since application started
     float time = glfwGetTime();
     // rotate light
-    m_light.direction = glm::normalize(vec3(glm::cos(time * 2),
-        glm::sin(time * 2), 0));
+    //m_light.direction = glm::normalize(vec3(glm::cos(time * 2), glm::sin(time * 2), 0));
+    float light_direction_frequency = 0.25f;
+    m_light.direction = glm::normalize(vec3(glm::cos(time * light_direction_frequency), glm::sin(time * light_direction_frequency), 0));
 
     ImGui::Begin("Light Settings");
     ImGui::DragFloat3("Sunlight Direction", &m_light.direction[0], 0.1f, -1.0f, 1.0f);
@@ -196,10 +191,11 @@ void Application3D::draw()
     // bind shader 
     //m_shader.bind();
     // bind transform 
-    //auto pvm = m_projection * m_view * m_quadTransform;
+    auto pvm2 = pv * m_quadTransform;
     //m_shader.bindUniform("ProjectionViewModel", pvm);
+    m_phongShader.bindUniform("ProjectionViewModel", pvm2);
     // draw quad 
-    //m_quadMesh.draw();
+    m_quadMesh.draw();
 
 
     vec4 white(1);
